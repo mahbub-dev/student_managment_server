@@ -5,10 +5,10 @@ const students = require("../controllers/students/presentation");
 router.post("/", students.create);
 
 // delete student
-router.delete("/:studentId", students.delete);
+router.delete("/:objectId", students.delete);
 
 //get one student
-router.get("/:studentId", students.getOne);
+router.get("/:objectId", students.getOne);
 
 // get all student
 router.get("/", students.getAll);
