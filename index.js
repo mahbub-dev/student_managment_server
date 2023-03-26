@@ -4,7 +4,8 @@ const multer = require("multer");
 const mongoose = require("mongoose");
 const students = require("./routes/students");
 const payments = require("./routes/payments");
-const donation = require("./routes/donations");
+const donations = require("./routes/donations");
+const volunteers = require("./routes/volunteers");
 const { errorResponse } = require("./utils/errorHandler");
 
 // define app
@@ -46,10 +47,10 @@ mongoose.connect(process.env.DB_URI).catch((err) => {
 console.log("DB CONNECTION SUCCESSFUL");
 
 // app routes
-app.use("/api", students);
-app.use("/api", donation);
-app.use("/api", payments);
-
+app.use("/api/students", students);
+app.use("/api/donations", donations);
+app.use("/api/payments", payments);
+app.use("/api/volunteers", volunteers);
 
 // start server
 app.listen(process.env.PORT, (err, info) => {
